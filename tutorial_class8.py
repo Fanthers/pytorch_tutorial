@@ -16,7 +16,7 @@ train_loader = DataLoader(train_dataset, shuffle=True, batch_size=batch_size)
 test_dataset = datasets.MNIST(root='./dataset/minst/', train=False, download=True, transform=transform)
 test_loader = DataLoader(test_dataset, shuffle=False, batch_size=batch_size)
 
-# design model using class
+# design data using class
 
 
 class Net(torch.nn.Module):

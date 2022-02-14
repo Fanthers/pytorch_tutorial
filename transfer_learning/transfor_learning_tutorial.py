@@ -73,7 +73,7 @@ def Visualize_a_few_images():
     imshow(out, title=[class_names[x] for x in classes])
 
 
-# 3.Training the model
+# 3.Training the data
 def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
     since = time.time()
 
@@ -87,9 +87,9 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
         # Each epoch has a training and validation phase
         for phase in ['train', 'val']:
             if phase == 'train':
-                model.train()  # Set model to training mode
+                model.train()  # Set data to training mode
             else:
-                model.eval()   # Set model to evaluate mode
+                model.eval()   # Set data to evaluate mode
 
             running_loss = 0.0
             running_corrects = 0
@@ -126,7 +126,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))
 
-            # deep copy the model
+            # deep copy the data
             if phase == 'val' and epoch_acc > best_acc:
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
@@ -138,12 +138,12 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
         time_elapsed // 60, time_elapsed % 60))
     print('Best val Acc: {:4f}'.format(best_acc))
 
-    # load best model weights
+    # load best data weights
     model.load_state_dict(best_model_wts)
     return model
 
 
-# 4.Visualizing the model predictions
+# 4.Visualizing the data predictions
 def visualize_model(model, num_images=6):
     was_training = model.training
     model.eval()

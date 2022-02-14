@@ -57,7 +57,7 @@ testLoader = DataLoader(testSet, batch_size=BATCH_SIZE, shuffle=True)
 N_COUNTRY = trainSet.getCountriesNum()
 
 
-# contruct model
+# contruct data
 class RNNClassifier(torch.nn.Module):
     def __init__(self, input_size, hidden_size, output_size, n_layers=1, bidirectional=True):
         super(RNNClassifier, self).__init__()
@@ -159,7 +159,7 @@ def trainModel():
 def testModel():
     correct = 0
     total = len(testSet)
-    print("evaluating trained model ... ")
+    print("evaluating trained data ... ")
     with torch.no_grad():
         for i, (names, countries) in enumerate(testLoader):
             inputs, seq_lengths, target = make_tensors(names, countries)

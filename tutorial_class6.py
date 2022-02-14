@@ -27,7 +27,7 @@ class Model(torch.nn.Module):
 model = Model()
 
 criterion = torch.nn.BCELoss(reduction='mean')
-#  optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+#  optimizer = torch.optim.SGD(data.parameters(), lr=0.1)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
 
 epoch_list = []
